@@ -3,5 +3,5 @@
 ''' An empty class that defines a rectangle'''
 
 class Rectangle:
-	''' the class that is a rectangle'''
-	pass
+    ''' the class that is a rectangle'''
+    pass
