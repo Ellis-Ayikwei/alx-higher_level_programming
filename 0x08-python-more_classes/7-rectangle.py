@@ -8,7 +8,7 @@ class Rectangle:
 
     Attributes:
     number_of_instances (int): The number of instances in the rectangle.
-    print_symbol (any): Used as symbol for string representation 
+    print_symbol (any):  sed as symbol for string representation 
     """
 
     number_of_instances = 0
@@ -71,7 +71,8 @@ class Rectangle:
 
         rect = []
         for i in range(self.__height):
-            [rect.append('#') for j in range(self.__width)]
+            [rect.append(str(self.print_symbol))
+            for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
