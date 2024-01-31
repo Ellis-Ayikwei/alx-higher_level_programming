@@ -77,5 +77,5 @@ class Rectangle:
         """Print the message Bye rectangle...
 
         when an instance of Rectangle is deleted
-	"""
+        """
         print("Bye rectangle...")
