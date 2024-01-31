@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+# 8-rectangle.py
+# Brennan D Baraban <375@holbertonschool.com>
 """Defines a Rectangle class."""
 
 
@@ -7,9 +8,10 @@ class Rectangle:
     """Represent a rectangle.
 
     Attributes:
-    number_of_instances (int): The number of instances in the rectangle.
-    print_symbol (any): used as symbol for string representation
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string representation.
     """
+
     number_of_instances = 0
     print_symbol = "#"
 
@@ -26,7 +28,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Get/set the width of the rectangle."""
+        """Get/set the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -39,7 +41,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the rectangle."""
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -51,8 +53,8 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """return the area of the rectangle"""
-        return self.__height * self.__width
+        """Return the area of the Rectangle."""
+        return (self.__width * self.__height)
 
     def perimeter(self):
         """Return the perimeter of the Rectangle."""
@@ -78,6 +80,15 @@ class Rectangle:
             return (rect_1)
         return (rect_2)
 
+    @classmethod
+    def square(cls, size=0):
+        """Return a new Rectangle with width and height equal to size.
+
+        Args:
+            size (int): The width and height of the new Rectangle.
+        """
+        return (cls(size, size))
+
     def __str__(self):
         """Return the printable representation of the Rectangle.
 
@@ -88,18 +99,10 @@ class Rectangle:
 
         rect = []
         for i in range(self.__height):
-            [rect.append(str(self.print_symbol))for j in range(self.__width)]
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
-        return ("".join(rect)
-
-    def def square(cls, size=0):
-        """Return a new Rectangle, width and height equal to size.
-
-        Args:
-            size (int): The width & height of the new Rectangle.
-        """
-        return (cls(size, size))
+        return ("".join(rect))
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
@@ -108,9 +111,6 @@ class Rectangle:
         return (rect)
 
     def __del__(self):
-        """Print the message Bye rectangle...
-
-        when an instance of Rectangle is deleted
-        """
+        """Print a message for every deletion of a Rectangle."""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
