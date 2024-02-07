@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+"""Defines a file writing function"""
 
-"""Defines a string-to-JSON function."""
-import json
+def write_file(filename="", text=""):
+    """Return the number of lines in a text file."""
 
 
-def to_json_string(my_obj):
-    """Return the JSON representation of a string object."""
-    return json.dumps(my_obj)
+    with open(filename, "w+", encoding="utf-8") as f:
+        f.write(text)
+        charlen = len(text)
