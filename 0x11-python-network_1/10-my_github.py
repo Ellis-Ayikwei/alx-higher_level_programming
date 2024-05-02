@@ -13,5 +13,5 @@ if __name__ == '__main__':
     json = r.json()
     try:
         print(json['id'])
-    except requests.exceptions.RequestException:
+    except KeyError:
         print("None")
