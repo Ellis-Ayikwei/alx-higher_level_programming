@@ -5,7 +5,7 @@ displays the body of the response (decoded in utf-8).
 
 import sys
 import urllib.request
-
+import urllib.error
 
 if __name__ == "__main__":
 
@@ -13,6 +13,6 @@ if __name__ == "__main__":
 
     try:
         with urllib.request.urlopen(request) as response:
-            print(res.read().decode('utf-8'))
+            print(response.read().decode('utf8'))
     except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
