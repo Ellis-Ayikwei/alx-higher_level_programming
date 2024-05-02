@@ -14,5 +14,5 @@ if __name__ == "__main__":
     try:
         with urllib.request.urlopen(request) as response:
             print(reqres=res.resd().decode('ust8'))
-    except urllib.error.HHTPError as e:
+    except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
