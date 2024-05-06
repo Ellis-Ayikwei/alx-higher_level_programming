@@ -124,3 +124,67 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
+
+    def area(self):
+        """returns the area of the rectangle
+               Args:
+                   Not arguments
+
+            Return:
+                Area of the rectangle object
+        """
+        return self.width * self.height
+
+    def display(selfw):
+        """prints to stdout
+           Rectangle object with the character #
+
+        """
+        for i in range(self.y):
+            print()
+        for i in range(self.height):
+            print(" " * self.x + self.width * '#')
+
+    def __str__(self):
+        """override str method
+        """
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
+                                                        self.y, self.width,
+                                                        self.height))
+
+    def update(self, *args, **kwargs):
+        """changed the order of arguments for rectangle object
+
+        Args:
+           *args: list of arguments
+           **kwargs: Dictionary with arguments
+
+        Return:
+           Always nothing
+
+        """
+        dict_order = ['id', 'width', 'height', 'x', 'y']
+        if args is not None and bool(args) is True:
+            i = 0
+            for key in dict_order:
+                try:
+                    setattr(self, key, args[i])
+                except IndexError:
+                    pass
+                i += 1
+        else:
+            for key in dict_order:
+                try:
+                    setattr(self, key, kwargs[key])
+                except KeyError:
+                    pass
+
+    def to_dictionary(self):
+        """Method that returns a dictionary with
+           attributes of the object.
+        """
+        dict_order = ['x', 'y', 'id', 'height', 'width']
+        dict_attrs = {}
+        for key in dict_order:
+            dict_attrs[key] = getattr(self, key)
+        return dict_attrs
