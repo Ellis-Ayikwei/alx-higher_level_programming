@@ -135,7 +135,7 @@ class Rectangle(Base):
         """
         return self.width * self.height
 
-    def display(selfw):
+    def display(self):
         """prints to stdout
            Rectangle object with the character #
 
@@ -149,8 +149,17 @@ class Rectangle(Base):
         """override str method
         """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
-                                                        self.y, self.width,
-                                                        self.height))
+                                                        self.y, self.width, self.height)) 
+
+    def to_dictionary(self):
+        """Method that returns a dictionary with
+           attributes of the object.
+        """
+        dict_order = ['x', 'y', 'id', 'height', 'width']
+        dict_attrs = {}
+        for key in dict_order:
+            dict_attrs[key] = getattr(self, key)
+        return dict_attrs
 
     def update(self, *args, **kwargs):
         """changed the order of arguments for rectangle object
@@ -178,13 +187,3 @@ class Rectangle(Base):
                     setattr(self, key, kwargs[key])
                 except KeyError:
                     pass
-
-    def to_dictionary(self):
-        """Method that returns a dictionary with
-           attributes of the object.
-        """
-        dict_order = ['x', 'y', 'id', 'height', 'width']
-        dict_attrs = {}
-        for key in dict_order:
-            dict_attrs[key] = getattr(self, key)
-        return dict_attrs
