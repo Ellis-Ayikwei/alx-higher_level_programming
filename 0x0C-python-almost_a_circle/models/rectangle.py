@@ -148,8 +148,9 @@ class Rectangle(Base):
     def __str__(self):
         """override str method
         """
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
-                                                        self.y, self.width, self.height)) 
+        return ("[Rectangle] ({}) {}/{} - {}/{}"
+                .format(self.id, self.x, self.y, self.width,
+                        self.height))
 
     def to_dictionary(self):
         """Method that returns a dictionary with
