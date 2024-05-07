@@ -5,6 +5,7 @@ import csv
 from collections import OrderedDict
 import turtle
 
+
 class Base:
     """Defines a base class"""
     __nb_objects = 0
@@ -25,7 +26,7 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    @staticmethod        
+    @staticmethod
     def to_json_string(list_dictionaries):
         """ returns the JSON string representation of list_dictionaries"""
         """Method that returns the JSON
@@ -42,7 +43,7 @@ class Base:
         else:
             json_rep = json.dumps(list_dictionaries)
             return json_rep
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         """ Method that writes the JSON string representation
@@ -66,7 +67,7 @@ class Base:
                 f.write("[]")
             else:
                 f.write(json_string)
-                
+          
     @staticmethod
     def from_json_string(json_string):
         """Method that returns the list of the
@@ -226,4 +227,3 @@ class Base:
 
         # Keeps window open
         turtle.getscreen()._root.mainloop()
-
