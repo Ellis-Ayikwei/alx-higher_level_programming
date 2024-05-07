@@ -29,8 +29,9 @@ class Square(Rectangle):
 
     # Getter and setter of width
     @property
-    def width(self)
-        """getter for the width"""
+    def width(self):
+        """Getter for the size of width
+        """
         return self.width
 
     @width.setter
