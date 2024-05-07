@@ -26,53 +26,22 @@ class Square(Rectangle):
         return ("[Square] ({}) {}/{} - {}"
                 .format(self.id, self.x, self.y,
                         self.width))
-
-    # Getter and setter of width
     @property
-    def width(self):
-        """Getter for the size of width
+    def size(self):
+        """Getter the size of the square
         """
-        return self.__width
+        return self.width
 
-    @width.setter
-    def width(self, value):
-        """Setter for the size of width
+    @size.setter
+    def size(self, value):
+        """Setter the size of the square
 
         Args:
-           value: Size to assign to the width
+           value: Size to assign
 
         Return:
            Always Nothing
 
         """
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        elif value <= 0:
-            raise ValueError("width must be > 0")
-        else:
-            self.__width = value
-
-    # Getter and setter of height
-    @property
-    def height(self):
-        """Getter the size of height
-        """
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """Setter the size of height
-
-        Args:
-           value: Size to assign to the height
-
-        Return:
-           Always Nothing
-
-        """
-        if type(value) is not int:
-            raise TypeError("height must be an integer")
-        elif value <= 0:
-            raise ValueError("height must be > 0")
-        else:
-            self.__height = value
+        self.width = value
+        self.heigth = value
