@@ -2,8 +2,6 @@
 """Defines a model class named base"""
 import json
 import csv
-from collections import OrderedDict
-import turtle
 
 
 class Base:
@@ -149,81 +147,3 @@ class Base:
                     result = csv.DictWriter(f, fieldnames=square_header)
                 result.writeheader()
                 result.writerows(data)
-
-    @classmethod
-    def load_from_file_csv(cls):
-        """Method that deserializes in CSV
-        """
-        filename = "{}.csv".format(cls.__name__)
-        instance_list = []
-        try:
-            with open(filename) as f:
-                result = csv.DictReader(f)
-                for row in result:
-                    row = dict(row)
-                    for key in row:
-                        row[key] = int(row[key])
-                    instance = cls.create(**row)
-                    instance_list.append(instance)
-        except FileNotFoundError:
-            return instance_list
-        return instance_list
-
-    @staticmethod
-    def draw(list_rectangles, list_squares):
-        """Method that draws the shape with turtle module
-
-        Args:
-           list_squares(list): List of square objects
-           list_rectangles(list): List of rectangle objects
-
-        Return:
-           Always nothing
-        """
-        # Open screen and set the turtle in the center
-        s = turtle.getscreen()
-        t = turtle.Turtle()
-
-        # Add a title to my screen
-        turtle.title("My first draw with python and tutle module")
-
-        # Customize turtle and screen background
-        t.shape("turtle")
-        turtle.bgcolor("black")
-
-        # Customize pen for rectangle
-        t.pen(pencolor="blue", fillcolor="white", pensize=5, speed=1)
-        # Extract the data from the instance rectangle list
-        for instance in list_rectangles:
-            # Customize pen for rectangle
-            t.pen(pencolor="blue", fillcolor="white", pensize=5, speed=1)
-            data = instance.to_dictionary()
-            # Set the position acording the rectangle object
-            t.home()
-            t.setpos(data['x'], data['y'])
-            # Draw process
-            t.pd()
-            for i in range(2):
-                t.forward(data['width'])
-                t.left(90)
-                t.forward(data['height'])
-                t.left(90)
-            t.pu()
-
-        # Customize pen for square
-        t.pen(pencolor="red", fillcolor="white", pensize=5, speed=0.5)
-        # Extract the data from the instance square list
-        for instance in list_squares:
-            data = instance.to_dictionary()
-            # Set the position acording the square object
-            t.home()
-            t.setpos(data['x'], data['y'])
-            # Draw process
-            t.pd()
-            for i in range(4):
-                t.forward(data['size'])
-                t.left(90)
-            t.pu()
-
-        # Keeps window open
-        turtle.getscreen()._root.mainloop()
