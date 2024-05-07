@@ -46,3 +46,40 @@ class Square(Rectangle):
         """
         self.width = value
         self.heigth = value
+
+    def update(self, *args, **kwargs):
+        """Method that update arguments for square object
+
+        Args:
+           *args: list of arguments.
+           **kwargs: Dictionary of the arguments.
+
+        Return:
+           Always nothing
+
+        """
+        dict_order = ['id', 'size', 'x', 'y']
+        if args is not None and bool(args) is True:
+            i = 0
+            for key in dict_order:
+                try:
+                    setattr(self, key, args[i])
+                except IndexError:
+                    pass
+                i += 1
+        else:
+            for key in dict_order:
+                try:
+                    setattr(self, key, kwargs[key])
+                except KeyError:
+                    pass
+
+    def to_dictionary(self):
+        """Method that returns the dictionary
+           representation of a Square.
+        """
+        dict_order = ['id', 'x', 'size', 'y']
+        dict_attrs = {}
+        for key in dict_order:
+            dict_attrs[key] = getattr(self, key)
+        return dict_attrs
