@@ -30,8 +30,8 @@ class Square(Rectangle):
     # Getter and setter of width
     @property
     def width(self)
-    """getter for the width"""
-    return self.width
+        """getter for the width"""
+        return self.width
 
     @width.setter
     def width(self, value):
