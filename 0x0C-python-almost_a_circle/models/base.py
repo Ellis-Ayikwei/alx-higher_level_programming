@@ -64,7 +64,7 @@ class Base:
             else:
                 f.write(json_string)
                 
-     @staticmethod
+    @staticmethod
     def from_json_string(json_string):
         """Method that returns the list of the
            JSON string representation
