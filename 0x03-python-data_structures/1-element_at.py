@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" replaces all occurrences of an element by another in a new list"""
+""" replaces all occurrences of an element by 
+another in a new list
+"""
 
 
 def element_at(my_list, idx):
