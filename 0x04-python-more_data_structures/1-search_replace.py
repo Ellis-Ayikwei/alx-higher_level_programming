@@ -8,4 +8,3 @@ def search_replace(my_list, search, replace):
     for element in my_list:
         new_list.append(replace if element == search else element)
     return new_list
-
