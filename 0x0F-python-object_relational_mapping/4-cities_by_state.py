@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Lists all cities of the database hbtn_0e_4_usa, ordered by city id.
+"""Lists all cities of the database hbtn_0e_4_usa, ordered by city id."""
 
 import sys
 import MySQLdb
