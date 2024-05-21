@@ -13,5 +13,6 @@ request(url, (error, response, body) => {
     const filteredFilms = films.filter(film => film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/'));
 
     const wedgeCount = filteredFilms.length;
+    console.log(wedgeCount)
   }
 });
